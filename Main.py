@@ -1,5 +1,6 @@
 from tkinter import *
 import Principal
+import Reporte
 p=Principal
 original=None
 original2=None
@@ -173,7 +174,6 @@ def Segunda_matriz(comando):
     ok=Button(form,text="OK",command=lambda : segunda(texto1,caja2,comando,ok))
     ok.place(x="170",y="255")
 
-
 form = Tk()#formulario
 form.title("Proyecto 2")#Nombre al formulario
 form.iconbitmap("icono.ico")#agregar icono
@@ -191,9 +191,9 @@ operaciones.add_command(label="Agregar linea vertical",command=lambda: Agregar(2
 operaciones.add_command(label="Agregar rectángulo",command=lambda: Rectangulo(1))
 operaciones.add_command(label="Agregar triángulo rectángulo", command=lambda : Rectangulo(2))
 reportes=Menu(m,tearoff=0)
-reportes.add_command(label="Generar reporte")
+reportes.add_command(label="Generar reporte",command=Reporte.Generar_reporte)
 ayuda=Menu(m,tearoff=0)
-ayuda.add_command(label="Datos del estudiante")
+ayuda.add_command(label="Datos del estudiante", command=lambda :p.MessageBox.showinfo("Datos Programador","Daniel Enrique Coti Peñate \n201801146"))
 ayuda.add_command(label="Documentación del programa")
 combinadas=Menu(m,tearoff=0)
 combinadas.add_command(label="Unión",command=lambda : Segunda_matriz(1))

@@ -168,7 +168,6 @@ def Union(original,original2):
                 list.Ingresar_datos("-",a,b)
     return list.Mostrar_matriz()
 
-
 def Interseccion(original,original2):
     list = Lista_orto()
     if original.filas < original2.filas:
@@ -194,7 +193,6 @@ def Interseccion(original,original2):
             else:
                 list.Ingresar_datos("-", a, b)
     return list.Mostrar_matriz()
-
 
 def Diferencia(original,original2):
     list = Lista_orto()
