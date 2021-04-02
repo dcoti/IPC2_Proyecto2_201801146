@@ -11,8 +11,8 @@ class Lista_reporte:
         else:
             return False
 
-    def Ingresar_datos(self,nombre,vacio,lleno,hora,fecha):
-        nuevo = r(nombre,vacio,lleno,hora,fecha)
+    def Ingresar_datos(self,fecha,hora,nombre,lleno,vacio):
+        nuevo = r(fecha,hora,nombre,lleno,vacio)
         if self.vacio():
             self.cabeza = nuevo
         else:

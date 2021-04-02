@@ -1,13 +1,5 @@
-import os  #sirve para hacer operaciones en el sistema operativo
-from Lista_reporte import Lista_reporte
-matriz=Lista_reporte()
-operaciones=Lista_reporte()
-combinadas=Lista_reporte()
-
-def Generar_reporte():
-    file=open("Reporte.html","w")
-    file.write("<html>\n")
-    file.write("""<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
 <!-- saved from url=(0069)https://www.w3schools.com/w3css/tryw3css_templates_photo3.htm#contact -->
 <!-- saved from url=(0059)https://www.w3schools.com/w3css/tryw3css_templates_teal.htm -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>PROYECTO 2</title>
@@ -45,18 +37,7 @@ def Generar_reporte():
 <th>NOMBRE MATRIZ</th>
 <th>CASILLAS LLENAS</th>
 <th>CASILLAS VACIAS</th>
-</tr> </thead> <tbody>""")
-    ope=matriz.cabeza
-    while ope!=None:
-        file.write("<tr>")
-        file.write("<td>" + ope.fecha+ "</td>")
-        file.write("<td>" + ope.hora + "</td>")
-        file.write("<td>" + ope.nombre + "</td>")
-        file.write("<td>" + str(ope.lleno)+ "</td>")
-        file.write("<td>" + str(ope.vacio) + "</td>")
-        file.write("</tr>")
-        ope=ope.siguiente
-    file.write("""</tbody></table></div><br><br>
+</tr> </thead> <tbody><tr><td>2/4/2021</td><td>15:38</td><td>B</td><td>4</td><td>16</td></tr><tr><td>2/4/2021</td><td>15:38</td><td>A</td><td>47</td><td>53</td></tr></tbody></table></div><br><br>
 
 <div class="w3-center">
 <h2>TABLA DE OPERACIONES</h2>
@@ -71,18 +52,7 @@ def Generar_reporte():
 <th>HORA</th>
 <th>NOMBRE MATRIZ</th>
 <th>OPERACION</th>
-</tr> </thead> <tbody>""")
-    global operaciones
-    ope = operaciones.cabeza
-    while ope != None:
-        file.write("<tr>")
-        file.write("<td>" + ope.fecha + "</td>")
-        file.write("<td>" + ope.hora + "</td>")
-        file.write("<td>" + ope.nombre + "</td>")
-        file.write("<td>" + str(ope.lleno) + "</td>")
-        file.write("</tr>")
-        ope = ope.siguiente
-    file.write("""</tbody></table></div><br><br>
+</tr> </thead> <tbody><tr><td>2/4/2021</td><td>15:38</td><td>A</td><td>Limpiar Zona</td></tr><tr><td>2/4/2021</td><td>15:38</td><td>A</td><td>Rotacion Horizontal</td></tr></tbody></table></div><br><br>
 <div class="w3-center">
 <h2>OPERACIONES COMBINADAS</h2>
 </div>
@@ -97,19 +67,6 @@ def Generar_reporte():
 <th>PRIMERA MATRIZ</th>
 <th>SEGUNDA MATRIZ</th>
 <th>OPERACION</th>
-</tr> </thead> <tbody>""")
-    ope= combinadas.cabeza
-    while ope != None:
-        file.write("<tr>")
-        file.write("<td>" + ope.fecha + "</td>")
-        file.write("<td>" + ope.hora + "</td>")
-        file.write("<td>" + ope.nombre + "</td>")
-        file.write("<td>" + str(ope.lleno) + "</td>")
-        file.write("<td>" + str(ope.vacio) + "</td>")
-        file.write("</tr>")
-        ope = ope.siguiente
-    file.write("""</tbody></table></div><br><br>
+</tr> </thead> <tbody><tr><td>2/4/2021</td><td>15:38</td><td>B</td><td>A</td><td>Union</td></tr><tr><td>2/4/2021</td><td>15:38</td><td>A</td><td>B</td><td>Diferencia</td></tr><tr><td>2/4/2021</td><td>15:38</td><td>A</td><td>B</td><td>Diferencia</td></tr><tr><td>2/4/2021</td><td>15:38</td><td>A</td><td>B</td><td>Union</td></tr></tbody></table></div><br><br>
 <!-- End page content -->
-</body></html>""")
-    file.close()
-    os.startfile("Reporte.html")
+</body></html>

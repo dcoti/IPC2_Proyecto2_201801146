@@ -3,6 +3,9 @@ from tkinter.filedialog import askopenfilename
 from tkinter import messagebox as MessageBox
 from Listas_matriz import Lista_matrix
 from Lista_ortogonal import Lista_orto
+from datetime import datetime
+import Reporte
+now=datetime.now()
 lista=Lista_matrix()
 raiz=""
 
@@ -30,6 +33,8 @@ def Leer_archivo(raiz):
         lista.AgregarMatriz(nombre,filas,columnas,imagen)
 
 def Rotacion_horizontal(original):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list=Lista_orto()
     fila=int(original.filas)
     aux = 0
@@ -39,10 +44,12 @@ def Rotacion_horizontal(original):
             dato=original.lista.Buscar(fila,a)
             list.Ingresar_datos(dato,aux,a)
         fila=fila-1
-    print(list.Mostrar_matriz())
+    Reporte.operaciones.Ingresar_datos(fecha,hora,original.nombre,"Rotacion Horizontal","")
     return list.Mostrar_matriz()
 
 def Rotacion_vertical(original):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list=Lista_orto()
     for a in range(1, int(original.filas) + 1):
         aux = 0
@@ -52,9 +59,12 @@ def Rotacion_vertical(original):
             dato=original.lista.Buscar(a,columna)
             list.Ingresar_datos(dato,a,aux)
             columna = columna - 1
+    Reporte.operaciones.Ingresar_datos(fecha, hora, original.nombre, "Rotacion Vertical", "")
     return list.Mostrar_matriz()
 
 def Transpuesta(original):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list = Lista_orto()
     aux=0
     for a in range(1, int(original.columnas) + 1):
@@ -62,9 +72,12 @@ def Transpuesta(original):
         for b in range(1,int(original.filas)+1):
             dato = original.lista.Buscar(b, a)
             list.Ingresar_datos(dato,aux, b)
+    Reporte.operaciones.Ingresar_datos(fecha, hora, original.nombre, "Transpuesta", "")
     return list.Mostrar_matriz()
 
 def Limpiar_zona(original,inicialx,inicialy,finalx,finaly):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list=Lista_orto()
     for a in range(1,int(original.filas)+1):
         for b in range(1, int(original.columnas)+1):
@@ -77,9 +90,12 @@ def Limpiar_zona(original,inicialx,inicialy,finalx,finaly):
             else:
                 dato=original.lista.Buscar(a,b)
                 list.Ingresar_datos(dato,a,b)
+    Reporte.operaciones.Ingresar_datos(fecha, hora, original.nombre, "Limpiar Zona", "")
     return list.Mostrar_matriz()
 
 def Linea_Horizontal(original,inicialx,inicialy,finalx):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list=Lista_orto()
     for a in range(1, int(original.filas) + 1):
         for b in range(1, int(original.columnas) + 1):
@@ -88,9 +104,12 @@ def Linea_Horizontal(original,inicialx,inicialy,finalx):
             else:
                 dato=original.lista.Buscar(a,b)
                 list.Ingresar_datos(dato,a,b)
+    Reporte.operaciones.Ingresar_datos(fecha, hora, original.nombre, "Linea Horizontal", "")
     return list.Mostrar_matriz()
 
 def Linea_Vertical(original,inicialx,inicialy,longitud):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list = Lista_orto()
     for a in range(1, int(original.filas) + 1):
         for b in range(1, int(original.columnas) + 1):
@@ -99,9 +118,12 @@ def Linea_Vertical(original,inicialx,inicialy,longitud):
             else:
                 dato = original.lista.Buscar(a, b)
                 list.Ingresar_datos(dato, a, b)
+    Reporte.operaciones.Ingresar_datos(fecha, hora, original.nombre, "Linea Vertical", "")
     return list.Mostrar_matriz()
 
 def Rectangulo(original,inicialx,inicialy,longitudx,longitudy):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list=Lista_orto()
     val=0
     cont=0
@@ -122,9 +144,12 @@ def Rectangulo(original,inicialx,inicialy,longitudx,longitudy):
             else:
                 dato=original.lista.Buscar(a,b)
                 list.Ingresar_datos(dato,a,b)
+    Reporte.operaciones.Ingresar_datos(fecha, hora, original.nombre, "Rectangulo", "")
     return list.Mostrar_matriz()
 
 def Triangulo_Rectangulo(original,inicialx,inicialy,longitudx,longitudy):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list=Lista_orto()
     cont=0
     for a in range(1, int(original.filas) + 1):
@@ -140,9 +165,12 @@ def Triangulo_Rectangulo(original,inicialx,inicialy,longitudx,longitudy):
             else:
                 dato=original.lista.Buscar(a,b)
                 list.Ingresar_datos(dato,a,b)
+    Reporte.operaciones.Ingresar_datos(fecha, hora, original.nombre, "Triangulo Rectangulo", "")
     return list.Mostrar_matriz()
 
 def Union(original,original2):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list=Lista_orto()
     if original.filas<original2.filas:
         filas=int(original.filas)
@@ -166,9 +194,12 @@ def Union(original,original2):
                 list.Ingresar_datos("*",a,b)
             else:
                 list.Ingresar_datos("-",a,b)
+    Reporte.combinadas.Ingresar_datos(fecha,hora,original.nombre,original2.nombre,"Union")
     return list.Mostrar_matriz()
 
 def Interseccion(original,original2):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list = Lista_orto()
     if original.filas < original2.filas:
         filas = int(original.filas)
@@ -192,9 +223,12 @@ def Interseccion(original,original2):
                 list.Ingresar_datos("*", a, b)
             else:
                 list.Ingresar_datos("-", a, b)
+    Reporte.combinadas.Ingresar_datos(fecha, hora, original.nombre, original2.nombre, "Interseccion")
     return list.Mostrar_matriz()
 
 def Diferencia(original,original2):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list = Lista_orto()
     if original.filas < original2.filas:
         filas = int(original.filas)
@@ -218,9 +252,12 @@ def Diferencia(original,original2):
                 list.Ingresar_datos("*", a, b)
             else:
                 list.Ingresar_datos("-", a, b)
+    Reporte.combinadas.Ingresar_datos(fecha, hora, original.nombre, original2.nombre, "Diferencia")
     return list.Mostrar_matriz()
 
 def Diferencia_Simetrica(original,original2):
+    fecha = str(now.day) + "/" + str(now.month) + "/" + str(now.year)
+    hora = str(now.hour) + ":" + str(now.minute)
     list = Lista_orto()
     if original.filas < original2.filas:
         filas = int(original.filas)
@@ -244,4 +281,5 @@ def Diferencia_Simetrica(original,original2):
                 list.Ingresar_datos("*", a, b)
             else:
                 list.Ingresar_datos("-", a, b)
+    Reporte.combinadas.Ingresar_datos(fecha, hora, original.nombre, original2.nombre, "Diferencia Simétrica")
     return list.Mostrar_matriz()

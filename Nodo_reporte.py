@@ -1,5 +1,5 @@
 class Nodo_reporte:
-    def __init__(self, nombre,vacio,lleno,hora,fecha):
+    def __init__(self,fecha, hora,nombre ,lleno,vacio):
         self.nombre=nombre
         self.vacio=vacio
         self.lleno=lleno
