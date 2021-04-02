@@ -1,6 +1,7 @@
 from tkinter import *
 import Principal
 import Reporte
+import os
 p=Principal
 original=None
 original2=None
@@ -194,7 +195,7 @@ reportes=Menu(m,tearoff=0)
 reportes.add_command(label="Generar reporte",command=Reporte.Generar_reporte)
 ayuda=Menu(m,tearoff=0)
 ayuda.add_command(label="Datos del estudiante", command=lambda :p.MessageBox.showinfo("Datos Programador","Daniel Enrique Coti Peñate \n201801146"))
-ayuda.add_command(label="Documentación del programa")
+ayuda.add_command(label="Documentación del programa",command=lambda:os.startfile("[IPC2]ENSAYO2_201801146.pdf"))
 combinadas=Menu(m,tearoff=0)
 combinadas.add_command(label="Unión",command=lambda : Segunda_matriz(1))
 combinadas.add_command(label="Intersección",command=lambda : Segunda_matriz(2))
